@@ -2,3 +2,33 @@
 \section{Resultados}
 
 El HP con nombre Tall stature y código HP:0000098 tiene 182 genes que al mapearlos en la red de STRING \cite{Szklarczyk2023} con un umbral de corte de 900, quedan 166 genes y 300 conexiones. La red resultante tiene una transitivity de 0.5016.
+
+\subsection{Clustering de la red}
+Aplicamos el algoritmo de Louvain (semilla 123) a la red de 41 nodos, que la dividió en 7 clusters (Figura~\ref{fig:clusters} y Tabla~\ref{tab:clusters}). Cuatro de ellos tienen al menos 5 genes. El cluster 1 (11 genes) reúne a \textit{ALG1}, \textit{ALG2}, \textit{ALG3}, \textit{ALG6}, \textit{ALG8}, \textit{ALG9}, \textit{ALG11}, \textit{ALG12}, \textit{ALG13}, \textit{PMM2} y \textit{RFT1}. El cluster 2 (8 genes) contiene \textit{DPAGT1}, \textit{DHRSX}, \textit{DOLK}, \textit{DPM1}, \textit{DPM2}, \textit{DPM3}, \textit{MPDU1} y \textit{SRD5A3}. El cluster 3 (6 genes) está formado por \textit{ATP6AP1}, \textit{ATP6AP2}, \textit{ATP6V0A2}, \textit{ATP6V1A}, \textit{ATP6V1E1} y \textit{VMA12}, y el cluster 4 (7 genes) por \textit{COG1} y \textit{COG3} a \textit{COG8}. Los tres clusters restantes son pequeños: \textit{GET4} y \textit{CAMLG} (2 genes), \textit{MPI}, \textit{PGM1} y \textit{PGM2L1} (3 genes), y \textit{DDOST}, \textit{EDEM3}, \textit{MAGT1} y \textit{SSR4} (4 genes).
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/red_clusters.png}
+	\caption{Red de interacciones de STRING (puntuación $\geq$ 800) entre los genes asociados al HP:0012347, coloreada según los clusters de Louvain.}
+	\label{fig:clusters}
+\end{figure}
+
+\subsection{Enriquecimiento funcional}
+Realizamos un análisis de sobrerrepresentación (ORA) de términos de Gene Ontology (procesos biológicos) con \textit{clusterProfiler}, usando la corrección de Benjamini-Hochberg y un umbral de p-valor ajustado de 0,05. Para los 50 genes del HPO, con todos los genes humanos anotados como fondo, obtuvimos 79 términos enriquecidos. Los más significativos fueron \textit{protein N-linked glycosylation} (22 de 50 genes; p ajustado $3{,}2\times10^{-37}$), \textit{glycoprotein metabolic process} (27/50; $3{,}6\times10^{-31}$), \textit{dolichol-linked oligosaccharide biosynthetic process} (14/50; $4{,}6\times10^{-31}$) y \textit{glycoprotein biosynthetic process} (25/50; $5{,}1\times10^{-30}$). También apareció \textit{intra-Golgi vesicle-mediated transport} (7/50; $2{,}4\times10^{-10}$).
+
+Para cada cluster de al menos 5 genes repetimos el análisis tomando como fondo los 41 genes de la red (Tabla~\ref{tab:clusters}). El cluster 1 se enriqueció en \textit{protein N-linked glycosylation} (11/11) y en \textit{dolichol-linked oligosaccharide biosynthetic process} (10/11). El cluster 4 se enriqueció en términos de transporte y localización de proteínas, como \textit{intracellular protein localization} y \textit{vesicle-mediated transport} (7/7). El cluster 2 solo mostró términos genéricos de metabolismo de fosfato (6/8), y el cluster 3 un único término muy general, \textit{biological regulation} (6/6).
+
+\begin{table}[htbp]
+	\caption{Clusters de Louvain con al menos 5 genes y término GO más significativo de cada uno.}
+	\label{tab:clusters}
+	\begin{tabular}{rrp{6cm}r}
+		\hline
+		Cluster & Genes & Término GO principal & p ajustado \\
+		\hline
+		1 & 11 & protein N-linked glycosylation & $9{,}8\times10^{-5}$ \\
+		2 & 8 & phosphorus metabolic process & $7{,}1\times10^{-3}$ \\
+		3 & 6 & biological regulation & $2{,}9\times10^{-2}$ \\
+		4 & 7 & intracellular protein localization & $1{,}8\times10^{-4}$ \\
+		\hline
+	\end{tabular}
+\end{table}
