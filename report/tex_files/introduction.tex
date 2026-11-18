@@ -1,1 +1,40 @@
+/
 \section{Introducción}
+
+La glicosilación de proteínas es uno de los procesos celulares que permiten que muchas proteínas puedan desarrollar correctamente sus funciones. Consiste en la incorporación de cadenas de azúcares, denominadas glicanos, a determinadas proteínas durante su formación y procesamiento. Aunque estas modificaciones no siempre son visibles cuando estudiamos una proteína, tienen una gran importancia, ya que pueden influir en su plegamiento, estabilidad, localización y actividad dentro de la célula.
+
+Existen diferentes tipos de glicosilación, pero en este trabajo nos centramos en la N-glicosilación. Este proceso consiste en la unión de glicanos al átomo de nitrógeno de determinados residuos de asparagina presentes en las proteínas. Comienza en el retículo endoplasmático, donde se incorpora inicialmente el glicano, y continúa en el aparato de Golgi, donde puede experimentar distintas modificaciones hasta alcanzar su estructura final.
+
+La importancia de este mecanismo se entiende mejor si tenemos en cuenta que numerosas proteínas necesitan una glicosilación adecuada para mantener su estructura y desempeñar su función. Por tanto, cuando se produce alguna alteración en las etapas de este proceso, pueden aparecer proteínas que no se pliegan correctamente, que presentan problemas de estabilidad o que no llegan al lugar donde deberían actuar. Estas alteraciones pueden tener consecuencias en diferentes procesos celulares y, en determinados casos, estar relacionadas con enfermedades genéticas.
+
+En este contexto, nuestro trabajo se centra en el fenotipo HP:0012347, denominado \textit{Abnormal protein N-linked glycosylation}, que podemos traducir como alteración de la N-glicosilación de proteínas. Este fenotipo se encuentra recogido en Human Phenotype Ontology (HPO) \cite{Kohler2021}, un recurso que permite describir de manera estandarizada las características fenotípicas asociadas a distintas enfermedades.
+
+La elección de este fenotipo nos permite estudiar un proceso biológico concreto y, al mismo tiempo, investigar los genes que pueden estar relacionados con sus alteraciones. En lugar de analizar cada gen de forma independiente, nos interesa conocer cómo se relacionan entre ellos y si participan en mecanismos celulares comunes.
+
+\subsection{Enfermedades asociadas al fenotipo}
+
+Las alteraciones de la N-glicosilación  \cite{Peanne2018} están relacionadas con diferentes enfermedades genéticas, entre las que destacan los trastornos congénitos de la glicosilación, conocidos como CDG por sus siglas en inglés (\textit{Congenital Disorders of Glycosylation}). Estos trastornos se producen como consecuencia de alteraciones genéticas que afectan a distintas etapas de la glicosilación.
+
+Una nano report/tex_files/introduction.texcaracterística importante de estas enfermedades es su diversidad clínica. Aunque comparten alteraciones en procesos relacionados con la glicosilación, sus manifestaciones pueden ser diferentes dependiendo de los genes afectados y de la función que desempeñen. Esto se debe a que la glicosilación interviene en numerosos procesos celulares y resulta necesaria para el funcionamiento de distintos tejidos y órganos.
+
+Al consultar las asociaciones recogidas en HPO para el término HP:0012347, encontramos varias enfermedades relacionadas con este fenotipo. Entre ellas se encuentran COG5-CDG (ORPHA:263487), el trastorno congénito de la glicosilación de tipo Iu (OMIM:615042), el tipo IId (OMIM:607091), el tipo IIb (OMIM:620546) y el tipo IIm (OMIM:300896).
+
+También aparecen otras enfermedades, como el síndrome de piel arrugada (\textit{Wrinkly skin syndrome}, ORPHA:2834), además de determinados trastornos del neurodesarrollo. Esto pone de manifiesto que las alteraciones de la N-glicosilación no se limitan a una única enfermedad, sino que pueden formar parte de distintos cuadros clínicos.
+
+Es importante señalar que la asociación de una enfermedad con este fenotipo no significa necesariamente que todas las personas afectadas presenten las mismas manifestaciones. HPO recoge relaciones entre características fenotípicas y enfermedades, lo que permite estudiar qué alteraciones pueden compartir distintos trastornos.
+
+Por este motivo, resulta especialmente interesante analizar los genes asociados a HP:0012347. Aunque puedan estar relacionados con enfermedades diferentes, algunos de estos genes participan en procesos biológicos comunes. Estudiar sus relaciones puede ayudarnos a comprender mejor qué mecanismos celulares se encuentran implicados en las alteraciones de la N-glicosilación.
+
+\subsection{Objetivo del trabajo}
+
+El objetivo principal de este trabajo es estudiar los genes asociados al fenotipo HP:0012347 y analizar las relaciones existentes entre ellos para comprender mejor los procesos biológicos implicados en la N-glicosilación de proteínas.
+
+Para comenzar, utilizamos Human Phenotype Ontology (HPO), que nos permite identificar los genes asociados al fenotipo seleccionado. A partir de esta información,empleamos STRING  \cite{Szklarczyk2023}, una base de datos que recoge asociaciones funcionales e interacciones entre proteínas, para construir una red que represente las relaciones entre los productos de estos genes.
+
+La construcción de esta red nos permite pasar de una lista de genes a una representación conjunta de sus posibles relaciones. En ella, los nodos representan proteínas y las conexiones indican asociaciones entre ellas. De esta manera, podemos observar qué proteínas se encuentran más relacionadas y cómo se organiza la red en su conjunto.
+
+Una vez obtenida la red, estudiamos algunas de sus propiedades, como el número de nodos y conexiones, la densidad y otras medidas que permiten describir su estructura. También analizamos la presencia de grupos o comunidades de proteínas mediante técnicas de clustering. Estos grupos pueden ayudarnos a identificar conjuntos de genes que mantienen relaciones especialmente estrechas dentro de la red.
+
+Por último, realizamos un análisis de enriquecimiento funcional, cuyo propósito es identificar procesos biológicos que aparecen representados entre los genes estudiados con mayor frecuencia de la esperada según el conjunto de referencia utilizado. Este análisis nos permite interpretar los resultados desde un punto de vista biológico y relacionar los grupos identificados con funciones celulares concretas.
+
+En conjunto, mediante este procedimiento buscamos comprender cómo se relacionan los genes asociados a las alteraciones de la N-glicosilación y qué funciones biológicas pueden compartir. Así, el análisis de redes nos ofrece una visión más amplia del fenotipo estudiado y nos ayuda a interpretar su relación con diferentes enfermedades genéticas.
