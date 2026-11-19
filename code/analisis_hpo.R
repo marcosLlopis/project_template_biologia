@@ -5,10 +5,10 @@
 #
 # Uso (desde la carpeta del repositorio):
 #   Rscript code/analisis_hpo.R                 # usa HPO_ID por defecto
-#   Rscript code/analisis_hpo.R HP:0000098      # otro término HPO
+#   Rscript code/analisis_hpo.R HP:0012347      # HPO del grupo (B)
 #
 # Salidas (carpeta results/analisis_<HPO>/):
-#   genes_hpo.csv, red_aristas.csv, metricas.txt, resumen_clusters.csv,
+#   genes_hpo_fuente.tsv, genes_hpo.csv, red_aristas.csv, metricas.txt,
 #   enriquecimiento_global.csv, enriquecimiento_cluster_<n>.csv,
 #   red_basica.png, red_grado.png, red_clusters.png,
 #   dotplot_global.png, dotplot_cluster_<n>.png
@@ -16,7 +16,7 @@
 
 # ------------------------- Parámetros -------------------------------------
 args    <- commandArgs(trailingOnly = TRUE)
-HPO_ID  <- if (length(args) >= 1) args[1] else "HP:0000098"
+HPO_ID  <- if (length(args) >= 1) args[1] else "HP:0012347"
 SCORE   <- 800      # umbral de puntuación de STRING (0-1000)
 MIN_SZ  <- 5        # tamaño mínimo de cluster para hacer enriquecimiento
 STRING_VERSION <- "12.5"
@@ -42,11 +42,10 @@ instalar_bioc <- function(pkgs) {
   instalar_cran("BiocManager")
   for (p in pkgs) if (!requireNamespace(p, quietly = TRUE)) BiocManager::install(p, ask = FALSE, update = FALSE)
 }
-instalar_cran(c("httr", "jsonlite", "igraph"))
+instalar_cran("igraph")
 instalar_bioc(c("STRINGdb", "clusterProfiler", "org.Hs.eg.db", "enrichplot"))
 
 suppressPackageStartupMessages({
-  library(httr); library(jsonlite)
   library(STRINGdb); library(clusterProfiler); library(org.Hs.eg.db); library(enrichplot)
   library(igraph)
 })
@@ -57,12 +56,31 @@ png_plot <- function(file, expr, w = 1600, h = 1400) {
 
 # ------------------------- Parte 1: genes de la HPO -----------------------
 message("== Parte 1: genes de ", HPO_ID)
-resp <- httr::GET(paste0("https://ontology.jax.org/api/network/annotation/", HPO_ID))
-httr::stop_for_status(resp)
-parsed <- jsonlite::fromJSON(httr::content(resp, as = "text", encoding = "UTF-8"))
-genes  <- parsed$genes
-if (is.null(genes) || nrow(genes) == 0) stop("La API no devolvió genes para ", HPO_ID)
-genes <- unique(genes[, c("id", "name")])
+hpo_tsv <- out("genes_hpo_fuente.tsv")
+url <- paste0(
+  "https://ontology.jax.org/api/network/annotation/",
+  HPO_ID,
+  "/download/gene"
+)
+download.file(url, hpo_tsv, mode = "wb")
+
+genes <- read.delim(
+  hpo_tsv,
+  stringsAsFactors = FALSE,
+  check.names = FALSE
+)
+if (!all(c("id", "name") %in% names(genes))) {
+  stop("La descarga de HPO no contiene las columnas id y name.")
+}
+genes$name <- trimws(genes$name)
+genes <- genes[
+  !is.na(genes$name) & nzchar(genes$name),
+  c("id", "name"),
+  drop = FALSE
+]
+genes <- unique(genes)
+if (nrow(genes) == 0) stop("La API no devolvió genes para ", HPO_ID)
+
 nombre_hpo <- if (length(args) >= 2) args[2] else NA_character_
 write.csv(genes, out("genes_hpo.csv"), row.names = FALSE)
 cat("Genes en la HPO:", nrow(genes), "\n")
@@ -80,12 +98,13 @@ inter <- string_db$get_interactions(string_ids$STRING_id)
 inter <- unique(inter[, 1:2])
 inter$from <- string_ids$name[match(inter$from, string_ids$STRING_id)]
 inter$to   <- string_ids$name[match(inter$to,   string_ids$STRING_id)]
-write.csv(inter, out("red_aristas.csv"), row.names = FALSE)
 
 # ------------------------- Parte 3: igraph y propiedades ------------------
 message("== Parte 3: igraph")
 g <- graph_from_data_frame(inter, directed = FALSE)
 g <- igraph::simplify(g)                       # quita bucles y aristas duplicadas (A-B / B-A)
+inter <- igraph::as_data_frame(g, what = "edges")
+write.csv(inter, out("red_aristas.csv"), row.names = FALSE)
 sin_interacciones <- setdiff(string_ids$name, V(g)$name)
 
 n_comp    <- igraph::components(g)$no
@@ -98,6 +117,7 @@ metricas <- c(
   paste("Genes en la HPO:", nrow(genes)),
   paste("Genes mapeados a STRING:", nrow(string_ids)),
   paste("Genes sin interacciones (fuera de la red):", length(sin_interacciones)),
+  paste("STRING:", STRING_VERSION, "(taxón 9606)"),
   paste("Umbral STRING:", SCORE),
   paste("Nodos:", gorder(g)),
   paste("Aristas:", gsize(g)),
