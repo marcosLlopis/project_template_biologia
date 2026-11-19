@@ -27,28 +27,24 @@
 	\begin{frontmatter}
 	
 		\begin{fmbox}
-			\dochead{Research}
+			\dochead{Artículo de investigación}
+\setattribute{authorinfo}{text}{}
 			
 			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 			%% INTRODUCIR TITULO PROYECTO               %%
 			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 			
-			\title{A sample article title}
+			\title{Red de genes asociados a la alteración de la N-glicosilación de proteínas (HP:0012347)}
 			
 			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 			%% AUTORES. METER UNA ENTRADA AUTHOR        %%
 			%% POR PERSONA                              %%
 			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 			
-			\author[
-			  addressref={aff1},                   % ESTA LINEA SE COPIA IGUAL PARA CADA AUTOR
-			  corref={aff1},                       % ESTA LINEA SOLO DEBE TENERLA EL COORDINADOR DEL GRUPO
-			  email={jane.e.doe@cambridge.co.uk}   % VUESTRO CORREO ACTIVO
-			]{\inits{J.E.}\fnm{Jane E.} \snm{Doe}} % inits: INICIALES DE AUTOR, fnm: NOMBRE DE AUTOR, snm: APELLIDOS DE AUTOR
-			\author[
-			  addressref={aff1},
-			  email={john.RS.Smith@cambridge.co.uk}
-			]{\inits{J.R.S.}\fnm{John R.S.} \snm{Smith}}
+			\author[addressref={aff1}]{\inits{M.P.}\fnm{Mario~}\snm{Perales Díaz}}
+			\author[addressref={aff1}]{\inits{E.A.}\fnm{Estela~}\snm{Anaya}}
+			\author[addressref={aff1}]{\inits{M.A.R.C.}\fnm{Miguel Ángel~}\snm{Ramírez Corbacho}}
+			\author[addressref={aff1}]{\inits{M.L.O.}\fnm{Marcos~}\snm{Llopis Ontañón}}
 			
 			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 			%% AFILIACION. NO TOCAR                     %%
@@ -64,26 +60,16 @@
 		\end{fmbox}% comment this for two column layout
 		
 		\begin{abstractbox}
-		
-			\begin{abstract} % abstract
-			
-			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-			%% RESUMEN BREVE DE NO MAS DE 100 PALABRAS   %%
-			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
-			
+			\begin{abstract}
+			Analizamos los genes asociados al fenotipo HP:0012347, alteración de la N-glicosilación de proteínas. A partir de 50 genes anotados en Human Phenotype Ontology, construimos una red de asociaciones funcionales con STRING (versión 12.5; puntuación mínima de 800). La red resultante contiene 41 nodos y 106 aristas, distribuidos en tres componentes conexas. El algoritmo de Louvain identificó siete comunidades. El análisis de sobrerrepresentación de procesos biológicos de Gene Ontology recuperó términos relacionados con la N-glicosilación, la biosíntesis de glicoproteínas y el transporte intracelular. La red y el enriquecimiento por comunidades ofrecen una descripción complementaria de los genes asociados al fenotipo.
 			\end{abstract}
-			
-			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-			%% PALABRAS CLAVE DEL PROYECTO              %%
-			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-			
 			\begin{keyword}
-			\kwd{sample}
-			\kwd{article}
-			\kwd{author}
+				\kwd{N-glicosilación}
+				\kwd{Human Phenotype Ontology}
+				\kwd{STRING}
+				\kwd{red de interacción}
+				\kwd{enriquecimiento funcional}
 			\end{keyword}
-		
-		
 		\end{abstractbox}
 	
 	\end{frontmatter}
@@ -92,109 +78,6 @@
 	%% EJEMPLO DE LATEX %%                                                                %%
 	%% BORRAR ANTES DE ENTREGAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!              %%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	
-	\section*{Content}
-		Text and results for this section, as per the individual journal's instructions for authors. Here, we reference the figure \ref{fig:cost_genome} and figure \ref{fig:cost_megabase} but also the table \ref{tab:ejemplo}.
-	
-	\section*{Section title}
-		Text for this section\ldots
-
-		In this section we examine the growth rate of the mean of $Z_0$, $Z_1$ and $Z_2$. In
-		addition, we examine a common modeling assumption and note the
-		importance of considering the tails of the extinction time $T_x$ in
-		studies of escape dynamics.
-		We will first consider the expected resistant population at $vT_x$ for
-		some $v>0$, (and temporarily assume $\alpha=0$)
-		%
-		\[
-		E \bigl[Z_1(vT_x) \bigr]=
-		\int_0^{v\wedge
-			1}Z_0(uT_x)
-		\exp (\lambda_1)\,du .
-		\]
-		%
-		If we assume that sensitive cells follow a deterministic decay
-		$Z_0(t)=xe^{\lambda_0 t}$ and approximate their extinction time as
-		$T_x\approx-\frac{1}{\lambda_0}\log x$, then we can heuristically
-		estimate the expected value as
-		%
-		\begin{equation}\label{eqexpmuts}
-			\begin{aligned}[b]
-				&      E\bigl[Z_1(vT_x)\bigr]\\
-				&\quad      = \frac{\mu}{r}\log x
-				\int_0^{v\wedge1}x^{1-u}x^{({\lambda_1}/{r})(v-u)}\,du .
-			\end{aligned}
-		\end{equation}
-		%
-		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		%% USAR \cite{...} PARA INCLUIR REFERENCIAS BIBLIOGRAFICAS          %%
-		%%  \cite{koon}  Para una sola                                      %%
-		%%  \cite{oreg,khar,zvai,xjon,schn,pond} Para una lista             %%
-		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		Thus we observe that this expected value is finite for all $v>0$ (also see \cite{koon,xjon,marg,schn,koha,issnic}).
-		
-		
-		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		%% FIGURAS                                                                               %%
-		%% includegraphics: inserta la imagen                                                    %%
-		%% caption: descripcion de la figura                                                     %%
-		%% label: etiqueta para hacer referencia a la figura en el texto con la instrucción ref  %%
-		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
-		
-		\begin{figure}[h!]
-			\includegraphics[width=0.9\textwidth]{figures/Sequencing_Cost_per_Genome_May2020.jpg}
-			\caption{Sample figure title}
-			\label{fig:cost_genome}
-		\end{figure}
-		
-		\begin{figure}[h!]
-			\includegraphics[width=0.9\textwidth]{figures/Sequencing_Cost_per_Megabase_May2020.jpg}
-			\caption{Sample figure title}
-			\label{fig:cost_megabase}
-		\end{figure}
-		
-		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		%% TABLAS                                                                               %%
-		%% caption: Descripción tabla                                                           %%
-		%% \begin{tabular}{letras}: Indica numero de columnas.                                  %%
-		%%    Una letra por columna, la letra indica la alineación de la columna:               %%
-		%%    c center, l left, r right                                                         %%
-		%% hline: Representa una linea como entre filas                                         %%
-		%% \\: fin de fila                                                                      %%
-		%% &: delimitador de celda                                                              %%
-		%% label: etiqueta para hacer referencia a la tabla en el texto con la instrucción ref  %%
-		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		
-		\begin{table}[h!]
-			\caption{Sample table title. This is where the description of the table should go}
-			\begin{tabular}{cccc}
-				\hline
-				& B1  &B2   & B3\\ 
-				\hline
-				A1 & 0.1 & 0.2 & 0.3\\
-				A2 & ... & ..  & .\\
-				A3 & ..  & .   & .\\ 
-				\hline
-				\label{tab:ejemplo}
-			\end{tabular}
-		\end{table}
-				
-		\subsection*{Sub-heading for section}
-			Text for this sub-heading\ldots
-	
-			\subsubsection*{Sub-sub heading for section}
-				Text for this sub-sub-heading\ldots
-					
-					\paragraph*{Sub-sub-sub heading for section}
-						Text for this sub-sub-sub-heading\ldots
-	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	%% FIN DE EJEMPLO !!!!!!!!!!!! %%
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	%% COMIENZO DEL DOCUMENTO REAL %%
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	\input{tex_files/introduction.tex}
 	\input{tex_files/material_methods.tex}
@@ -209,23 +92,21 @@
 	
 	\begin{backmatter}
 	
-		\section*{Abreviaciones}%% if any
-			Indicar lista de abreviaciones mostrando cada acrónimo a que corresponde
-		
-		\section*{Disponibilidad de datos y materiales}%% if any
-			Debéis indicar aquí un enlace a vuestro repositorio de github.
-		
+		\section*{Abreviaciones}
+		\begin{description}
+			\item[CDG] Trastornos congénitos de la glicosilación (\textit{Congenital Disorders of Glycosylation}).
+			\item[GO] Gene Ontology.
+			\item[HPO] Human Phenotype Ontology.
+			\item[ORA] Análisis de sobrerrepresentación (\textit{Over-Representation Analysis}).
+			\item[STRING] Search Tool for the Retrieval of Interacting Genes/Proteins.
+		\end{description}
+
+		\section*{Disponibilidad de datos y materiales}
+		Los scripts y materiales del proyecto están disponibles en el repositorio del grupo: \texttt{github.com/marcosLlopis/project\_template\_biologia}.
+
 		\section*{Contribución de los autores}
-			Usando las iniciales que habéis definido al comienzo del documento, debeis indicar la contribución al proyecto en el estilo:
-			J.E : Encargado del análisis de coexpresión con R, escritura de resultados; J.R.S : modelado de red con python y automatizado del código, escritura de métodos; ...
-			OJO: que sea realista con los registros que hay en vuestros repositorios de github. 
-		
-		
-		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		%% BIBLIOGRAFIA: no teneis que tocar nada, solo sustituir el archivo bibliography.bib %%
-		%% por el que hayais generado vosotros                                                %%
-		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		
+		M.P.D. desarrolló el código reproducible para obtener los genes asociados al término HPO y construir la red. E.A. trabajó el fenotipo, las enfermedades asociadas y la introducción. M.A.R.C. se encargó del análisis de comunidades. M.L.O. coordinó el grupo. Todos los autores son responsables de comprender y defender el trabajo completo.
+
 		\bibliographystyle{bmc-mathphys} % Style BST file (bmc-mathphys, vancouver, spbasic).
 		\bibliography{bibliography}      % Bibliography file (usually '*.bib' )
 	
