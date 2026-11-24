@@ -3,3 +3,38 @@
 Descargamos la lista de genes asociados a HP:0012347 desde la API de Human Phenotype Ontology y eliminamos espacios sobrantes y filas sin símbolo génico. Mapeamos los 50 genes a identificadores de STRING para Homo sapiens (taxón 9606), versión 12.5, con una puntuación mínima de 800. Construimos una red no dirigida con las asociaciones que superaron ese umbral y eliminamos aristas duplicadas y bucles.
 
 Calculamos el número de nodos y aristas, el grado medio, la densidad, la transitividad global y las componentes conexas con el paquete \textit{igraph}. Identificamos comunidades mediante el algoritmo de Louvain usando la semilla 123. Para la interpretación funcional, realizamos análisis de sobrerrepresentación de términos de procesos biológicos de Gene Ontology con \textit{clusterProfiler}. Aplicamos la corrección de Benjamini-Hochberg y consideramos significativos los términos con p ajustado inferior a 0,05. En el análisis global usamos como fondo los genes humanos anotados en GO; en el análisis por comunidad usamos los genes de la red como fondo.
+
+
+\subsection{Análisis topológico y dispersión del grado}
+
+Con el objetivo de caracterizar la organización
+estructural de la red de asociaciones proteicas
+del fenotipo HP:0012347, se realizó un análisis
+topológico mediante el paquete \texttt{igraph}
+del lenguaje de programación R.
+
+La red se construyó utilizando STRING v12.5,
+considerando un umbral de confianza de 800.
+
+Se calcularon el número de nodos y aristas,
+el grado medio, la densidad y la transitividad
+global de la red.
+
+Para estudiar la heterogeneidad de la
+conectividad de los nodos, se calculó la
+distribución del grado, incluyendo la media,
+mediana, varianza, desviación típica,
+cuartiles y coeficiente de variación.
+
+El coeficiente de variación se calculó como:
+
+\begin{equation}
+CV = \frac{s_k}{\bar{k}} \times 100
+\end{equation}
+
+donde $s_k$ representa la desviación típica
+del grado y $\bar{k}$ su valor medio.
+
+Finalmente, las proteínas se ordenaron según
+su grado para identificar aquellas con un
+mayor número de asociaciones directas.

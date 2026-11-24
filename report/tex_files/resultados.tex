@@ -32,3 +32,102 @@ Para cada cluster de al menos 5 genes repetimos el análisis tomando como fondo 
 		\hline
 	\end{tabular}
 \end{table}
+
+\subsection{Caracterización topológica y
+dispersión de la red}
+
+La red de asociaciones proteicas correspondiente
+al fenotipo HP:0012347, construida mediante
+STRING v12.5 con un umbral de confianza de 800,
+estuvo formada por 41 nodos y 106 aristas,
+distribuidos en tres componentes conexas.
+
+La densidad de la red fue de 0.1293 y la
+transitividad global de 0.6263.
+
+El grado medio de los nodos fue de 5.1707,
+con una mediana de 5 y una desviación típica
+de 2.7559. La varianza del grado fue de
+7.5951 y el coeficiente de variación alcanzó
+el 53.30\%.
+
+El grado mínimo fue de 1 y el máximo de 11.
+El primer y tercer cuartil fueron 3 y 6,
+respectivamente.
+
+Estos resultados muestran una distribución
+heterogénea del número de asociaciones
+entre las proteínas analizadas.
+
+\begin{table}[htbp]
+\centering
+\caption{Medidas topológicas y de dispersión
+de la red HP:0012347.}
+\label{tab:dispersion_red}
+
+\begin{tabular}{lc}
+\hline
+Medida & Valor \\
+\hline
+Nodos & 41 \\
+Aristas & 106 \\
+Componentes conexas & 3 \\
+Densidad & 0.1293 \\
+Transitividad & 0.6263 \\
+Grado medio & 5.1707 \\
+Mediana & 5 \\
+Varianza & 7.5951 \\
+Desviación típica & 2.7559 \\
+Coeficiente de variación & 53.30\% \\
+Grado mínimo & 1 \\
+Grado máximo & 11 \\
+Primer cuartil & 3 \\
+Tercer cuartil & 6 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]
+{../results/analisis_avanzado/distribucion_grado.pdf}
+\caption{Distribución del grado de los nodos de
+la red HP:0012347. La línea discontinua
+representa el grado medio.}
+\label{fig:distribucion_grado}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.75\textwidth]
+{../results/analisis_avanzado/boxplot_grado.pdf}
+\caption{Diagrama de cajas de la distribución
+del grado de los nodos de la red.}
+\label{fig:boxplot_grado}
+\end{figure}
+
+\subsubsection{Identificación de proteínas con mayor conectividad}
+
+El análisis del grado permitió identificar las proteínas
+con mayor número de asociaciones directas dentro de la
+red. Como se observa en la Figura~\ref{fig:top10_grado},
+los genes \textit{ALG1} y \textit{ALG3} presentaron el
+mayor grado, con 11 conexiones cada uno.
+
+Los genes \textit{ALG6}, \textit{PMM2}, \textit{DPM1}
+y \textit{DPAGT1} presentaron 9 conexiones, seguidos
+de \textit{ALG12} y \textit{ALG11}, con 8 conexiones,
+y \textit{DPM2} y \textit{DOLK}, con 7 conexiones.
+
+Los genes ALG1 y ALG3 presentaron una conectividad
+superior al doble del grado medio de la red, lo que
+permite identificarlos como candidatos a hubs.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]
+    {../results/analisis_avanzado/top10_grado.pdf}
+    \caption{Diez proteínas con mayor grado en la red
+    de asociaciones proteicas del fenotipo HP:0012347.}
+    \label{fig:top10_grado}
+\end{figure}
