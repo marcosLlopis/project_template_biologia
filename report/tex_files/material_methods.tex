@@ -113,3 +113,7 @@ observaciones disponibles por pares, de manera
 que las comparaciones que incluían cercanía o
 centralidad de autovector quedaron restringidas
 a la componente conexa mayor.
+
+\subsection{Sensibilidad al umbral de STRING}
+
+Se evalúa la sensibilidad de la red a tres umbrales de confianza: 600, 800 y 900. Se mantienen constantes el fenotipo HP:0012347, STRING v12.5, el taxón humano 9606 y la semilla 123 para Louvain. En cada umbral se reconstruye la red a partir de los mismos genes mapeados. Los genes sin interacciones por encima del umbral se contabilizan aparte y no se incluyen entre los nodos al calcular las métricas topológicas.

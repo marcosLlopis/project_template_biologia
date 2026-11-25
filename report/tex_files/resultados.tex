@@ -290,3 +290,34 @@ sobre la organización estructural de la red.
     representan las comunidades de Louvain.}
     \label{fig:grado_intermediacion}
 \end{figure}
+
+\subsection{Sensibilidad al umbral de STRING}
+
+Al aumentar el umbral de 600 a 900, el tamaño de la red y el número de conexiones han disminuido: los nodos con interacción pasan de 46 a 38 y las aristas, de 173 a 78. Los genes sin interacciones han aumentado de 4 a 12, y las componentes conexas, de 2 a 4. El grado medio ha descendido de 7,52 a 4,11 y la densidad ha bajado de 0,167 a 0,111.
+
+La transitividad ha aumentado de 0,608 a 0,685. Louvain identifica 6, 7 y 6 comunidades para los umbrales 600, 800 y 900, respectivamente. La modularidad ha aumentado de 0,417 a 0,656. Como cada umbral produce una red distinta, estos valores describen particiones de grafos diferentes y no indican por sí solos una mejora de la estructura.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Métricas de la red para distintos umbrales de confianza de STRING.}
+\label{tab:sensibilidad_umbral}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrrr}
+\hline
+Umbral & Nodos & Genes sin interacción & Aristas & Componentes & Comunidades & Transitividad & Modularidad \\
+\hline
+600 & 46 & 4  & 173 & 2 & 6 & 0,6079 & 0,4168 \\
+800 & 41 & 9  & 106 & 3 & 7 & 0,6263 & 0,5688 \\
+900 & 38 & 12 & 78  & 4 & 6 & 0,6850 & 0,6559 \\
+\hline
+\end{tabular}%
+}
+\end{table}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../results/analisis_avanzado/sensibilidad_umbral_STRING.pdf}
+\caption{Cambios en el tamaño de la red, las aristas, la transitividad y la modularidad al variar el umbral de STRING.}
+\label{fig:sensibilidad_umbral}
+\end{figure}
