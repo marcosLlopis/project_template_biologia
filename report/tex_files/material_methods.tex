@@ -38,3 +38,50 @@ del grado y $\bar{k}$ su valor medio.
 Finalmente, las proteínas se ordenaron según
 su grado para identificar aquellas con un
 mayor número de asociaciones directas.
+
+\subsection{Centralidad y conectividad entre comunidades}
+
+Para identificar proteínas estructuralmente relevantes
+se calcularon diferentes medidas de centralidad:
+grado, intermediación, centralidad armónica, cercanía,
+centralidad de autovector y PageRank.
+
+Debido a la existencia de componentes desconectadas,
+la centralidad de cercanía y de autovector se calcularon
+sobre la componente conexa de mayor tamaño.
+
+Para estudiar la conectividad entre las comunidades
+identificadas mediante Louvain, se calculó el número
+de conexiones externas de cada nodo y su coeficiente
+de participación:
+
+\begin{equation}
+P_i = 1 - \sum_{s=1}^{M}
+\left(\frac{k_{is}}{k_i}\right)^2
+\end{equation}
+
+donde $M$ representa el número de comunidades,
+$k_i$ el grado del nodo $i$ y $k_{is}$ el número
+de conexiones del nodo $i$ con la comunidad $s$.
+
+Asimismo, se identificaron los puntos de articulación,
+definidos como aquellos nodos cuya eliminación
+incrementa el número de componentes conexas.
+
+Finalmente, se calcularon las correlaciones de
+Spearman entre las diferentes medidas para estudiar
+su concordancia.
+
+Para el cálculo del coeficiente de participación
+se utilizó la partición de siete comunidades obtenida
+previamente mediante el algoritmo de Louvain.
+
+Las correlaciones de Spearman se calcularon utilizando
+los pares de observaciones disponibles para cada
+comparación. En las medidas de cercanía y autovector,
+el análisis se restringió a los nodos pertenecientes
+a la componente conexa mayor.
+
+También se calculó la modularidad de la partición
+para caracterizar la organización de la red en
+comunidades.

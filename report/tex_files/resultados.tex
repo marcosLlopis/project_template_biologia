@@ -131,3 +131,113 @@ permite identificarlos como candidatos a hubs.
     de asociaciones proteicas del fenotipo HP:0012347.}
     \label{fig:top10_grado}
 \end{figure}
+
+
+
+\subsection{Análisis de centralidades y proteínas puente}
+
+El análisis de centralidades permitió identificar
+proteínas relevantes según diferentes criterios
+estructurales, más allá del número de asociaciones
+directas.
+
+Los genes \textit{ALG1} y \textit{ALG3} destacaron
+en varias medidas de centralidad. ALG1 presentó los
+mayores valores de centralidad armónica (0.4813),
+cercanía (0.5000) y autovector (1.0000), mientras
+que ALG3 obtuvo el mayor valor de PageRank (0.0447).
+
+Sin embargo, el mayor valor de intermediación
+correspondió a \textit{ALG2} (0.1960), seguido
+de \textit{ATP6V0A2} (0.1667) y \textit{PMM2}
+(0.1518).
+
+\begin{table}[htbp]
+\centering
+\caption{Genes con mayor puntuación en cada medida
+de centralidad y conectividad entre comunidades.}
+\label{tab:centralidades_maximas}
+\begin{tabular}{lcr}
+\hline
+Medida & Gen & Valor \\
+\hline
+Grado & ALG1, ALG3 & 11 \\
+Intermediación & ALG2 & 0.1960 \\
+Armónica & ALG1 & 0.4813 \\
+Cercanía & ALG1 & 0.5000 \\
+Autovector & ALG1 & 1.0000 \\
+PageRank & ALG3 & 0.0447 \\
+Participación & MPI & 0.6667 \\
+Conexiones externas & DPAGT1 & 5 \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Conectividad entre comunidades}
+
+El mayor coeficiente de participación correspondió
+al gen \textit{MPI} (0.6667), seguido de
+\textit{SRD5A3} (0.6250) y \textit{PMM2} (0.5679).
+
+Por otro lado, \textit{DPAGT1} presentó el mayor
+número de conexiones externas, con cinco asociaciones
+con proteínas pertenecientes a otras comunidades.
+
+La modularidad de la partición de Louvain fue de
+0.5688.
+
+Se identificaron seis puntos de articulación:
+\textit{ALG11}, \textit{ATP6V0A2}, \textit{ALG2},
+\textit{DDOST}, \textit{PGM2L1} y \textit{MPI}.
+
+La eliminación individual de cualquiera de estos
+nodos incrementa el número de componentes conexas
+de la red.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.95\textwidth]
+    {../results/analisis_avanzado/red_intermediacion.pdf}
+    \caption{Red coloreada según las comunidades
+    de Louvain. El tamaño de los nodos es proporcional
+    a su centralidad de intermediación. Los bordes
+    rojos identifican los puntos de articulación.}
+    \label{fig:red_intermediacion}
+\end{figure}
+
+\subsubsection{Relación entre las medidas de centralidad}
+
+El análisis de correlación de Spearman mostró una
+elevada concordancia entre el grado y PageRank
+($\rho=0.906$), así como entre el coeficiente de
+participación y las conexiones externas
+($\rho=0.964$).
+
+Por el contrario, la correlación entre grado e
+intermediación fue moderada ($\rho=0.523$), mientras
+que la correlación entre grado y participación
+fue de 0.410.
+
+Estos resultados muestran que las medidas analizadas
+proporcionan información parcialmente complementaria
+sobre la organización estructural de la red.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]
+    {../results/analisis_avanzado/correlaciones_centralidad.pdf}
+    \caption{Matriz de correlaciones de Spearman
+    entre las medidas de centralidad y conectividad
+    entre comunidades.}
+    \label{fig:correlaciones_centralidad}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]
+    {../results/analisis_avanzado/grado_intermediacion.pdf}
+    \caption{Relación entre el grado y la centralidad
+    de intermediación de los nodos. Los colores
+    representan las comunidades de Louvain.}
+    \label{fig:grado_intermediacion}
+\end{figure}
