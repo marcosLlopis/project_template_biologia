@@ -61,7 +61,19 @@
 		
 		\begin{abstractbox}
 			\begin{abstract}
-			Analizamos los genes asociados al fenotipo HP:0012347, alteración de la N-glicosilación de proteínas. A partir de 50 genes anotados en Human Phenotype Ontology, construimos una red de asociaciones funcionales con STRING (versión 12.5; puntuación mínima de 800). La red resultante contiene 41 nodos y 106 aristas, distribuidos en tres componentes conexas. El algoritmo de Louvain identificó siete comunidades. El análisis de sobrerrepresentación de procesos biológicos de Gene Ontology recuperó términos relacionados con la N-glicosilación, la biosíntesis de glicoproteínas y el transporte intracelular. La red y el enriquecimiento por comunidades ofrecen una descripción complementaria de los genes asociados al fenotipo.
+			
+			 Se analizaron los genes asociados al fenotipo HP:0012347, correspondiente a una alteración de la N-glicosilación de proteínas.
+             A partir de 50 genes anotados en Human Phenotype Ontology, se construyó una red de asociaciones funcionales mediante STRING v12.5, utilizando un umbral de confianza de 800. La red resultante estuvo formada por 41 nodos y 106 aristas,
+             distribuidos en tres componentes conexas. El algoritmo de Louvain identificó siete comunidades, cuya caracterización funcional mediante Gene Ontology mostró asociaciones con procesos de N-glicosilación, biosíntesis de glicoproteínas y transporte intracelular.
+			 El análisis topológico reveló una densidad de 0.1293, una transitividad de 0.6263 y una distribución heterogénea del grado, con un coeficiente de variación del 53.30\%.
+			 Los genes ALG1 y ALG3 presentaron la mayor
+			 conectividad, mientras que ALG2 destacó por su
+			 centralidad de intermediación y su condición
+			 de punto de articulación. MPI presentó el
+			 mayor coeficiente de participación entre comunidades.
+			 En conjunto, la combinación de análisis funcionales y topológicos permitió identificar diferentes
+			 perfiles de relevancia estructural entre las proteínas asociadas al fenotipo.
+
 			\end{abstract}
 			\begin{keyword}
 				\kwd{N-glicosilación}
@@ -105,7 +117,7 @@
 		Los scripts y materiales del proyecto están disponibles en el repositorio del grupo: \texttt{github.com/marcosLlopis/project\_template\_biologia}.
 
 		\section*{Contribución de los autores}
-		M.P.D. desarrolló el código reproducible para obtener los genes asociados al término HPO y construir la red. E.A. trabajó el fenotipo, las enfermedades asociadas y la introducción. M.A.R.C. se encargó del análisis de comunidades. M.L.O. coordinó el grupo. Todos los autores son responsables de comprender y defender el trabajo completo.
+		M.P.D. desarrolló el código reproducible para obtener los genes asociados al término HPO y construir la red. E.A. trabajó el fenotipo, las enfermedades asociadas y la introducción. M.A.R.C. se encargó del análisis de comunidades. M.L.O. coordinó el grupo y desarrolló el análisis topológico avanzado, incluyendo las medidas de dispersión, centralidad y conectividad entre comunidades. Todos los autores son responsables de comprender y defender el trabajo completo.
 
 		\bibliographystyle{bmc-mathphys} % Style BST file (bmc-mathphys, vancouver, spbasic).
 		\bibliography{bibliography}      % Bibliography file (usually '*.bib' )

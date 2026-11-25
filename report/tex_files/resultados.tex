@@ -133,6 +133,15 @@ permite identificarlos como candidatos a hubs.
 \end{figure}
 
 
+Aunque \textit{ALG1} y \textit{ALG3} presentaron
+el mayor número de conexiones directas, el grado
+no permite determinar por sí solo qué proteínas
+ocupan posiciones estratégicas en la red.
+
+Por este motivo, se calcularon medidas adicionales
+de centralidad para estudiar la accesibilidad de
+los nodos, su participación en caminos mínimos
+y sus conexiones con distintas comunidades.
 
 \subsection{Análisis de centralidades y proteínas puente}
 
@@ -173,6 +182,23 @@ Conexiones externas & DPAGT1 & 5 \\
 \end{tabular}
 \end{table}
 
+
+La comparación entre las distintas medidas mostró
+diferencias relevantes en la clasificación de los
+nodos. Mientras que \textit{ALG1} presentó el mayor
+grado de la red, con 11 conexiones, su centralidad
+de intermediación fue de 0.0617.
+
+Por el contrario, \textit{ALG2}, que no se encontraba
+entre las diez proteínas con mayor grado, presentó
+la mayor intermediación de toda la red (0.1960).
+
+Además, \textit{ALG2} fue identificado como punto
+de articulación, mientras que \textit{ALG1} no
+presentó esta propiedad.
+
+
+
 \subsubsection{Conectividad entre comunidades}
 
 El mayor coeficiente de participación correspondió
@@ -182,6 +208,19 @@ al gen \textit{MPI} (0.6667), seguido de
 Por otro lado, \textit{DPAGT1} presentó el mayor
 número de conexiones externas, con cinco asociaciones
 con proteínas pertenecientes a otras comunidades.
+
+Estos resultados mostraron diferentes perfiles de
+conectividad entre comunidades. \textit{MPI},
+perteneciente al cluster 6, destacó por la distribución
+de sus conexiones entre distintas comunidades,
+mientras que \textit{DPAGT1}, perteneciente al
+cluster 2, destacó por el número absoluto
+de conexiones externas.
+
+Por su parte, \textit{PMM2}, perteneciente al
+cluster 1, presentó simultáneamente un grado de 9,
+una intermediación de 0.1518 y un coeficiente
+de participación de 0.5679.
 
 La modularidad de la partición de Louvain fue de
 0.5688.
@@ -194,6 +233,15 @@ La eliminación individual de cualquiera de estos
 nodos incrementa el número de componentes conexas
 de la red.
 
+Entre ellos, \textit{ALG2} y \textit{ATP6V0A2}
+presentaron los dos mayores valores de intermediación
+de toda la red, con 0.1960 y 0.1667, respectivamente.
+
+Esta coincidencia permitió identificar nodos que
+destacan tanto por su participación en caminos
+mínimos como por su importancia para la
+conectividad estructural de la red.
+
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.95\textwidth]
@@ -204,6 +252,7 @@ de la red.
     rojos identifican los puntos de articulación.}
     \label{fig:red_intermediacion}
 \end{figure}
+
 
 \subsubsection{Relación entre las medidas de centralidad}
 

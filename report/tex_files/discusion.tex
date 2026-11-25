@@ -1,42 +1,43 @@
 \section{Discusión}
-La red de interacciones del HP:0012347 es densa y está muy agrupada (densidad 0,129; transitivity 0,626), lo que indica que los genes asociados a este fenotipo forman módulos funcionales bien definidos. Los clusters recuperan complejos y rutas conocidos: las enzimas \textit{ALG} de la síntesis del oligosacárido ligado a dolicol, el complejo COG, que participa en el tráfico dentro del Golgi, y las subunidades de la V-ATPasa. Que los genes más centrales por centralidad armónica sean \textit{ALG1}, \textit{ALG3}, \textit{ALG6}, \textit{PMM2} y \textit{ALG11} es coherente con el papel de esta ruta como paso previo a la N-glicosilación.
 
-El enriquecimiento global confirma que el fenotipo está asociado a la glicosilación, pero este resultado era esperable, porque los genes se eligieron precisamente por su relación con ella. Más informativo es el análisis por clusters, que separa la síntesis del precursor (cluster 1), el metabolismo del dolicol y la manosilación (cluster 2) y el tráfico intracelular de proteínas (cluster 4). En cambio, el cluster 3, formado por subunidades de la V-ATPasa, solo devolvió el término genérico \textit{biological regulation}, y el cluster 2 solo términos muy amplios de metabolismo del fosfato. Estos resultados no deben sobreinterpretarse, pues la identidad de esos clusters se deduce de los genes que los componen y no del enriquecimiento.
+La red de asociaciones proteicas del fenotipo
+HP:0012347 presentó una densidad de 0.1293
+y una transitividad global de 0.6263.
 
-El análisis tiene varias limitaciones. Nueve de los 50 genes (\textit{B4GALT1}, \textit{SLC35A2}, \textit{UGGT1}, \textit{GORAB}, \textit{MAN2B2}, \textit{MGAT2}, \textit{SLC37A4}, \textit{SLC39A8} y \textit{MAN1B1}) no tienen interacciones con puntuación mayor o igual que 800 y quedan fuera de la red y de todas las métricas. Bajar el umbral los incorporaría a costa de interacciones menos fiables. Además, el algoritmo de Louvain es estocástico, por lo que el número y la composición de los clusters pueden variar entre ejecuciones y versiones de \textit{igraph}. Por último, el fondo de solo 41 genes reduce la potencia del ORA por cluster, y solo 22 de los 50 genes tienen anotado el término \textit{protein N-linked glycosylation} en GO, lo que apunta a que las anotaciones de GO y de la HPO son incompletas.
-
-
-\subsection{Heterogeneidad y organización
-topológica de la red}
-
-El análisis topológico mostró una densidad
-del 12.93\%, junto con una transitividad
-global de 0.6263.
-
-La coexistencia de una densidad limitada
-y una transitividad relativamente elevada
-sugiere una organización basada en grupos
-locales de proteínas interconectadas.
-
-Por otro lado, el coeficiente de variación
-del grado, superior al 50\%, refleja una
-heterogeneidad apreciable en la conectividad
-de los nodos.
-
-Los genes ALG1 y ALG3 destacaron por presentar
-el mayor número de asociaciones directas.
-
-La identificación de estas proteínas como
-candidatas a hubs resulta de interés para
-el estudio de la organización molecular de
+Estos resultados muestran una conectividad global
+limitada junto con una tendencia al agrupamiento
+local. Esta organización es compatible con la
+existencia de comunidades, identificadas
+posteriormente mediante el algoritmo de Louvain.
+Los clusters recuperan complejos y rutas conocidos: 
+las enzimas \textit{ALG} de la síntesis del oligosacárido ligado
+a dolicol, el complejo COG, que participa en el tráfico dentro
+del Golgi, y las subunidades de la V-ATPasa. Que los genes más
+centrales por centralidad armónica sean \textit{ALG1}, \textit{ALG3}, \textit{ALG6}, 
+\textit{PMM2} y \textit{ALG11} es coherente con el papel de esta ruta como paso previo a 
 la N-glicosilación.
 
-Sin embargo, una elevada conectividad no
-implica necesariamente una mayor relevancia
-clínica o esencialidad biológica, por lo que
-estos resultados deberán complementarse con
-otras medidas de centralidad y análisis
-funcionales.
+El enriquecimiento global confirma que el fenotipo está asociado a la glicosilación, 
+pero este resultado era esperable, porque los genes se eligieron precisamente por su
+relación con ella. Más informativo es el análisis por clusters, que separa la síntesis
+del precursor (cluster 1), el metabolismo del dolicol y la manosilación (cluster 2) 
+y el tráfico intracelular de proteínas (cluster 4). En cambio, el cluster 3,
+formado por subunidades de la V-ATPasa, solo devolvió el término genérico 
+\textit{biological regulation}, y el cluster 2 solo términos muy amplios de metabolismo 
+del fosfato. Estos resultados no deben sobreinterpretarse, pues la identidad de esos 
+clusters se deduce de los genes que los componen y no del enriquecimiento.
+
+El análisis tiene varias limitaciones. Nueve de los 50 genes 
+(\textit{B4GALT1}, \textit{SLC35A2}, \textit{UGGT1}, \textit{GORAB}, \textit{MAN2B2},
+\textit{MGAT2}, \textit{SLC37A4}, \textit{SLC39A8} y \textit{MAN1B1}) no tienen 
+interacciones con puntuación mayor o igual que 800 y quedan fuera de la red y 
+de todas las métricas. Bajar el umbral los incorporaría a costa de interacciones 
+menos fiables. Además, el algoritmo de Louvain es estocástico, por lo que el número y 
+la composición de los clusters pueden variar entre ejecuciones y versiones de 
+\textit{igraph}. Por último, el fondo de solo 41 genes reduce la potencia del ORA por 
+cluster, y solo 22 de los 50 genes tienen anotado el término 
+\textit{protein N-linked glycosylation} en GO, lo que apunta a que las anotaciones de GO 
+y de la HPO son incompletas.
 
 \subsection{Organización topológica y heterogeneidad de la red}
 

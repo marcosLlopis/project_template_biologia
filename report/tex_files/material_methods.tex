@@ -39,21 +39,50 @@ Finalmente, las proteínas se ordenaron según
 su grado para identificar aquellas con un
 mayor número de asociaciones directas.
 
+
 \subsection{Centralidad y conectividad entre comunidades}
 
-Para identificar proteínas estructuralmente relevantes
-se calcularon diferentes medidas de centralidad:
-grado, intermediación, centralidad armónica, cercanía,
-centralidad de autovector y PageRank.
+Con el objetivo de identificar proteínas relevantes
+para la organización estructural de la red, se
+calcularon distintas medidas de centralidad mediante
+el paquete \texttt{igraph} de R.
 
-Debido a la existencia de componentes desconectadas,
-la centralidad de cercanía y de autovector se calcularon
-sobre la componente conexa de mayor tamaño.
+La centralidad de grado se utilizó para identificar
+los nodos con mayor número de asociaciones directas.
+La centralidad de intermediación (\textit{betweenness})
+permitió identificar proteínas situadas en los caminos
+mínimos entre otros pares de nodos, por lo que puede
+revelar posibles puntos de conexión dentro de la red.
 
-Para estudiar la conectividad entre las comunidades
-identificadas mediante Louvain, se calculó el número
-de conexiones externas de cada nodo y su coeficiente
-de participación:
+La centralidad de cercanía (\textit{closeness}) se
+empleó para estudiar la proximidad de cada nodo al
+resto de proteínas de su componente conexa. Debido
+a que la red presentaba componentes desconectadas,
+esta medida se calculó exclusivamente sobre la
+componente conexa de mayor tamaño.
+
+De forma complementaria, se calculó la centralidad
+armónica sobre la red completa, asignando una
+contribución nula a los nodos que no podían
+alcanzarse mediante ningún camino.
+
+También se calcularon la centralidad de autovector
+(\textit{eigenvector centrality}) y PageRank.
+La primera permite identificar nodos conectados
+con otros nodos que presentan elevada centralidad,
+mientras que PageRank evalúa la importancia
+estructural de los nodos considerando la distribución
+de sus conexiones mediante un modelo de recorrido
+aleatorio.
+
+La centralidad de autovector se calculó sobre
+la componente conexa mayor, mientras que
+PageRank se obtuvo sobre la red completa.
+
+Para estudiar la conectividad entre las siete
+comunidades identificadas mediante Louvain, se
+calculó el número de conexiones externas de
+cada nodo y el coeficiente de participación:
 
 \begin{equation}
 P_i = 1 - \sum_{s=1}^{M}
@@ -61,27 +90,26 @@ P_i = 1 - \sum_{s=1}^{M}
 \end{equation}
 
 donde $M$ representa el número de comunidades,
-$k_i$ el grado del nodo $i$ y $k_{is}$ el número
-de conexiones del nodo $i$ con la comunidad $s$.
+$k_i$ es el grado del nodo $i$ y $k_{is}$
+representa el número de conexiones del nodo
+$i$ con la comunidad $s$.
 
-Asimismo, se identificaron los puntos de articulación,
-definidos como aquellos nodos cuya eliminación
-incrementa el número de componentes conexas.
+Este coeficiente permite identificar nodos cuyas
+asociaciones se distribuyen entre distintas
+comunidades, independientemente de su grado total.
 
-Finalmente, se calcularon las correlaciones de
-Spearman entre las diferentes medidas para estudiar
-su concordancia.
+Asimismo, se identificaron los puntos de
+articulación, definidos como aquellos nodos
+cuya eliminación individual incrementa el
+número de componentes conexas de la red.
 
-Para el cálculo del coeficiente de participación
-se utilizó la partición de siete comunidades obtenida
-previamente mediante el algoritmo de Louvain.
+Finalmente, se calculó la modularidad de la
+partición de Louvain y se evaluó la concordancia
+entre las distintas medidas mediante el
+coeficiente de correlación de Spearman.
 
-Las correlaciones de Spearman se calcularon utilizando
-los pares de observaciones disponibles para cada
-comparación. En las medidas de cercanía y autovector,
-el análisis se restringió a los nodos pertenecientes
+Las correlaciones se calcularon utilizando
+observaciones disponibles por pares, de manera
+que las comparaciones que incluían cercanía o
+centralidad de autovector quedaron restringidas
 a la componente conexa mayor.
-
-También se calculó la modularidad de la partición
-para caracterizar la organización de la red en
-comunidades.
